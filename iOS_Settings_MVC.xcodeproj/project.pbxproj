@@ -16,6 +16,7 @@
 		3038A7BA2AF5FE9400B893F5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038A7B92AF5FE9400B893F5 /* MainViewController.swift */; };
 		3038A7BC2AF6093F00B893F5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038A7BB2AF6093F00B893F5 /* MainView.swift */; };
 		3038A7BE2AF60BBE00B893F5 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038A7BD2AF60BBE00B893F5 /* Setting.swift */; };
+		3038A7C02AF610A400B893F5 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038A7BF2AF610A400B893F5 /* SettingsViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3038A7B92AF5FE9400B893F5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3038A7BB2AF6093F00B893F5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3038A7BD2AF60BBE00B893F5 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		3038A7BF2AF610A400B893F5 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				3038A7BB2AF6093F00B893F5 /* MainView.swift */,
+				3038A7BF2AF610A400B893F5 /* SettingsViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3038A7BA2AF5FE9400B893F5 /* MainViewController.swift in Sources */,
+				3038A7C02AF610A400B893F5 /* SettingsViewCell.swift in Sources */,
 				3038A7BE2AF60BBE00B893F5 /* Setting.swift in Sources */,
 				3038A7BC2AF6093F00B893F5 /* MainView.swift in Sources */,
 				3038A7982AF5FCFC00B893F5 /* AppDelegate.swift in Sources */,
