@@ -20,6 +20,7 @@
 		3038A7C22AF611FF00B893F5 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038A7C12AF611FF00B893F5 /* UITableView.swift */; };
 		3038A7C42AF620E300B893F5 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038A7C32AF620E300B893F5 /* DetailController.swift */; };
 		3038A7C62AF6213100B893F5 /* DetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038A7C52AF6213100B893F5 /* DetailedView.swift */; };
+		3038A7C82AF6331500B893F5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038A7C72AF6331500B893F5 /* UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		3038A7C12AF611FF00B893F5 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		3038A7C32AF620E300B893F5 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		3038A7C52AF6213100B893F5 /* DetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedView.swift; sourceTree = "<group>"; };
+		3038A7C72AF6331500B893F5 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				3038A7C12AF611FF00B893F5 /* UITableView.swift */,
+				3038A7C72AF6331500B893F5 /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3038A7C42AF620E300B893F5 /* DetailController.swift in Sources */,
+				3038A7C82AF6331500B893F5 /* UIImage.swift in Sources */,
 				3038A7C62AF6213100B893F5 /* DetailedView.swift in Sources */,
 				3038A7BA2AF5FE9400B893F5 /* MainViewController.swift in Sources */,
 				3038A7C02AF610A400B893F5 /* SettingsViewCell.swift in Sources */,

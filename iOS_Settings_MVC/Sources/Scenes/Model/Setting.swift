@@ -33,31 +33,31 @@ class SettingsManager {
     }
 
     private var settingsList = [Setting(name: "Airplane Mode",
-                                style: .check,      block: .fast,    imageName: "Airplane Mode"),
+                                        style: .check,      block: .fast,    imageName: "airplane", backgroundColor: .systemOrange),
                         Setting(name: "Wi-Fi",
-                                style: .move,       block: .fast,    imageName: "Wi-Fi"),
-                        Setting(name: "Bluetooth",
-                                style: .move,       block: .fast,    imageName: nil),
+                                style: .move,       block: .fast,    imageName: "wifi", backgroundColor: .systemBlue),
+                        Setting(name: "VPN",
+                                style: .move,       block: .fast,    imageName: "network", backgroundColor: .systemBlue),
                         Setting(name: "Cellular",
-                                style: .move,       block: .fast,    imageName: "Cellular"),
+                                style: .move,       block: .fast,    imageName: "antenna.radiowaves.left.and.right", backgroundColor: .systemGreen),
                         Setting(name: "Personal Hotspot",
-                                style: .move,       block: .fast,    imageName: "Personal Hotspot"),
+                                style: .move,       block: .fast,    imageName: "personalhotspot", backgroundColor: .systemGreen),
                         Setting(name: "Notifications",
-                                style: .move,       block: .notifications,    imageName: "Notifications"),
+                                style: .move,       block: .notifications,    imageName: "bell.badge.fill", backgroundColor: .systemRed),
                         Setting(name: "Sounds & Haptics",
-                                style: .move,       block: .notifications,    imageName: "Sounds & Haptics"),
+                                style: .move,       block: .notifications,    imageName: "speaker.wave.3.fill", backgroundColor: .systemPink),
                         Setting(name: "Focus",
-                                style: .move,       block: .notifications,    imageName: "Focus"),
+                                style: .move,       block: .notifications,    imageName: "moon.fill", backgroundColor: .systemPurple),
                         Setting(name: "Screen Time",
-                                style: .move,       block: .notifications,    imageName: "Screen Time"),
+                                style: .move,       block: .notifications,    imageName: "hourglass", backgroundColor: .systemPurple),
                         Setting(name: "General",
-                                style: .move,       block: .main,    imageName: "General"),
-                        Setting(name: "Control Center",
-                                style: .check,       block: .main,    imageName: nil),
+                                style: .move,       block: .main,    imageName: "gear", backgroundColor: .systemGray),
+                        Setting(name: "Face ID & Passcode",
+                                style: .check,       block: .main,    imageName: "faceid", backgroundColor: .systemGreen),
                         Setting(name: "Display & Brightness",
-                                style: .move,       block: .main,    imageName: "Display & Brightness"),
-                        Setting(name: "Wallpaper",
-                                style: .move,       block: .main,    imageName: nil)
+                                style: .move,       block: .main,    imageName: "sun.max.fill", backgroundColor: .systemBlue),
+                        Setting(name: "Emergency SOS",
+                                style: .move,       block: .main,    imageName: "sos", backgroundColor: .systemRed)
     ]
 }
 
@@ -88,6 +88,8 @@ enum SettingBlock: Int, CaseIterable {
 ///   Это значение используется для группировки настроек в разделы.
 ///   - `imageName`: Необязательное имя изображения, используемое для иконки настройки.
 ///   Если изображение отсутствует, `imageName` будет `nil`.
+///   - `backgroundColor`: Необязательный цвет фона изображения. Если цвет не задан,
+///     будет использоваться прозрачный фон.
 ///
 /// Вычисляемое свойство:
 ///   - `imageMain`: Возвращает объект `UIImage`, соответствующий `imageName`,
@@ -101,16 +103,14 @@ struct Setting {
     let block: SettingBlock
     /// Имя изображения, используемое для иконки настройки.
     let imageName: String?
+    /// Цвет фона изображения, используемый если изображение есть.
+    let backgroundColor: UIColor?
 
     /// Возвращает изображение настройки, если оно доступно.
-//    var imageMain: UIImage? {
-//        return UIImage(named: imageName ?? "")
-//    }
-
     var imageMain: UIImage? {
         guard let name = imageName, !name.isEmpty else {
             return nil
         }
-        return UIImage(named: name)
+        return UIImage.squareImageFromSFSymbol(named: name, backgroundColor: backgroundColor, sideLength: 100, cornerRadius: 20)
     }
 }
