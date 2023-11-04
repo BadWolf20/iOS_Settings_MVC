@@ -6,52 +6,113 @@
 //
 
 import UIKit
+import NotificationManager
 
 class MainViewController: UIViewController {
+    // MARK: - Properties
+    private let settingsView = MainView()
 
-    private var MainView: MainView? {
-        guard isViewLoaded else { return nil }
-        return view as? MainView
-    }
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = MainView
-        // Do any additional setup after loading the view.
+        view = settingsView
+        setup()
     }
 
+
+    // MARK: - Setup
+    private func setup() {
+        setupComponents()
+        setupText()
+    }
+
+    private func setupComponents() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+
+        settingsView.tableView.register(cellType: SettingsViewCell.self)
+        settingsView.tableView.dataSource = self
+        settingsView.tableView.delegate = self
+    }
+
+    private func setupText() {
+        title = "Settings"
+    }
+    // MARK: - Functions
+    // Переход к экрану настроек на основе выбранной строки
+    private func moveToSetttingView(_ screenName: String) {
+        navigationController?.pushViewController(DetailController(screenName: screenName), animated: true)
+
+    }
 }
 
-extension MainViewController: UITableViewDataSource, UITableViewDelegate {
-
+// MARK: - UITableViewDataSource
+extension MainViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return SettingsManager.shared.getSectionsCount()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
+        let sectionType = SettingBlock.allCases[section]
+        switch sectionType {
+        case .fast:
             return SettingsManager.shared.getSettingsSectionLength(for: .fast)
-        case 1:
+        case .notifications:
             return SettingsManager.shared.getSettingsSectionLength(for: .notifications)
-        case 2:
+        case .main:
             return SettingsManager.shared.getSettingsSectionLength(for: .main)
-        default:
-            return 0
         }
-    }
-
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if indexPath.row == 0 && indexPath.section == 0 {
-            return nil
-        }
-        return indexPath
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-    
-    
+        var set = [Setting]()
+        let sectionType = SettingBlock.allCases[indexPath.section]
 
+        switch sectionType {
+        case .fast:
+            set = SettingsManager.shared.getSettingsList(for: .fast)
+        case .notifications:
+            set = SettingsManager.shared.getSettingsList(for: .notifications)
+        case .main:
+            set = SettingsManager.shared.getSettingsList(for: .main)
+        }
+
+        let setChose = set[indexPath.row]
+
+        let cell: SettingsViewCell = settingsView.tableView.dequeueReusableCell(for: indexPath, cellType: SettingsViewCell.self)
+        cell.configure(with: setChose)
+        cell.switchAction = { isOn in
+            NotificationManager.shared.sendNotification(withTitle: "You changed state to \(isOn ? "on" : "off")")
+        }
+
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let block = SettingBlock.allCases[indexPath.section]
+        let settings = SettingsManager.shared.getSettingsList(for: block)
+        let setting = settings[indexPath.row]
+
+        if setting.style == .check {
+            return nil
+        }
+
+        return indexPath
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let block = SettingBlock.allCases[indexPath.section]
+        let settings = SettingsManager.shared.getSettingsList(for: block)
+        let setting = settings[indexPath.row]
+
+        // Обработка выбора настройки
+        NotificationManager.shared.sendNotification(withTitle: "You push '\(setting.name)' button")
+
+        // Переход к экрану настроек
+        moveToSetttingView(setting.name)
+    }
 }

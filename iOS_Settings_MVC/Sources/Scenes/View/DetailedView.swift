@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  DetailedView.swift
 //  iOS_Settings_MVC
 //
 //  Created by Roman on 04.11.2023.
@@ -8,17 +8,11 @@
 import UIKit
 import SnapKit
 
-class MainView: UIView {
+class DetailedView: UIView {
+
 
     // MARK: - Components
-    lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
 
-        tableView.frame = CGRect.init(origin: .zero, size: frame.size)
-        tableView.rowHeight = 50
-
-        return tableView
-    }()
 
     // MARK: - Initializers
     override init(frame: CGRect) {
@@ -39,7 +33,6 @@ class MainView: UIView {
     }
 
     private func setupHierarchy() {
-        addSubview(tableView)
     }
 
     private func setupComponents() {
@@ -50,9 +43,7 @@ class MainView: UIView {
     }
 
     private func setupConstraints() {
-        tableView.snp.remakeConstraints { make in
-            make.bottom.top.left.right.equalTo(safeAreaLayoutGuide)
-        }
+  
     }
-}
 
+}
