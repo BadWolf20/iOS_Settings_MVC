@@ -103,7 +103,14 @@ struct Setting {
     let imageName: String?
 
     /// Возвращает изображение настройки, если оно доступно.
+//    var imageMain: UIImage? {
+//        return UIImage(named: imageName ?? "")
+//    }
+
     var imageMain: UIImage? {
-        return UIImage(named: imageName ?? "")
+        guard let name = imageName, !name.isEmpty else {
+            return nil
+        }
+        return UIImage(named: name)
     }
 }
