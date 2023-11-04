@@ -18,6 +18,8 @@
 		3038A7BE2AF60BBE00B893F5 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038A7BD2AF60BBE00B893F5 /* Setting.swift */; };
 		3038A7C02AF610A400B893F5 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038A7BF2AF610A400B893F5 /* SettingsViewCell.swift */; };
 		3038A7C22AF611FF00B893F5 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038A7C12AF611FF00B893F5 /* UITableView.swift */; };
+		3038A7C42AF620E300B893F5 /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038A7C32AF620E300B893F5 /* DetailController.swift */; };
+		3038A7C62AF6213100B893F5 /* DetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038A7C52AF6213100B893F5 /* DetailedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		3038A7BD2AF60BBE00B893F5 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		3038A7BF2AF610A400B893F5 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
 		3038A7C12AF611FF00B893F5 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		3038A7C32AF620E300B893F5 /* DetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
+		3038A7C52AF6213100B893F5 /* DetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				3038A7BB2AF6093F00B893F5 /* MainView.swift */,
+				3038A7C52AF6213100B893F5 /* DetailedView.swift */,
 				3038A7BF2AF610A400B893F5 /* SettingsViewCell.swift */,
 			);
 			path = View;
@@ -140,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				3038A7B92AF5FE9400B893F5 /* MainViewController.swift */,
+				3038A7C32AF620E300B893F5 /* DetailController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -222,6 +228,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3038A7C42AF620E300B893F5 /* DetailController.swift in Sources */,
+				3038A7C62AF6213100B893F5 /* DetailedView.swift in Sources */,
 				3038A7BA2AF5FE9400B893F5 /* MainViewController.swift in Sources */,
 				3038A7C02AF610A400B893F5 /* SettingsViewCell.swift in Sources */,
 				3038A7BE2AF60BBE00B893F5 /* Setting.swift in Sources */,

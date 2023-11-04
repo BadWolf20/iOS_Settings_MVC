@@ -10,7 +10,7 @@ import NotificationManager
 
 class MainViewController: UIViewController {
     // MARK: - Properties
-    private var settingsView = MainView()
+    private let settingsView = MainView()
 
 
     // MARK: - Lifecycle
@@ -37,6 +37,12 @@ class MainViewController: UIViewController {
 
     private func setupText() {
         title = "Settings"
+    }
+    // MARK: - Functions
+    // Переход к экрану настроек на основе выбранной строки
+    private func moveToSetttingView(_ screenName: String) {
+        navigationController?.pushViewController(DetailController(screenName: screenName), animated: true)
+
     }
 }
 
@@ -86,9 +92,14 @@ extension MainViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if indexPath.row == 0 && indexPath.section == 0 {
+        let block = SettingBlock.allCases[indexPath.section]
+        let settings = SettingsManager.shared.getSettingsList(for: block)
+        let setting = settings[indexPath.row]
+
+        if setting.style == .check {
             return nil
         }
+
         return indexPath
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -98,13 +109,10 @@ extension MainViewController: UITableViewDelegate {
         let settings = SettingsManager.shared.getSettingsList(for: block)
         let setting = settings[indexPath.row]
 
-
         // Обработка выбора настройки
         NotificationManager.shared.sendNotification(withTitle: "You push '\(setting.name)' button")
 
         // Переход к экрану настроек
-        // TODO: Реализовать переход к экрану настроек, если требуется
-//        moveToSetttingView(setting.name)
-
+        moveToSetttingView(setting.name)
     }
 }
