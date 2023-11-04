@@ -17,6 +17,7 @@
 		3038A7BC2AF6093F00B893F5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038A7BB2AF6093F00B893F5 /* MainView.swift */; };
 		3038A7BE2AF60BBE00B893F5 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038A7BD2AF60BBE00B893F5 /* Setting.swift */; };
 		3038A7C02AF610A400B893F5 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038A7BF2AF610A400B893F5 /* SettingsViewCell.swift */; };
+		3038A7C22AF611FF00B893F5 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038A7C12AF611FF00B893F5 /* UITableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		3038A7BB2AF6093F00B893F5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3038A7BD2AF60BBE00B893F5 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		3038A7BF2AF610A400B893F5 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
+		3038A7C12AF611FF00B893F5 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		3038A7AF2AF5FD9E00B893F5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3038A7C12AF611FF00B893F5 /* UITableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				3038A7BC2AF6093F00B893F5 /* MainView.swift in Sources */,
 				3038A7982AF5FCFC00B893F5 /* AppDelegate.swift in Sources */,
 				3038A79A2AF5FCFD00B893F5 /* SceneDelegate.swift in Sources */,
+				3038A7C22AF611FF00B893F5 /* UITableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

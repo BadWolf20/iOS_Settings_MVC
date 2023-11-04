@@ -57,8 +57,8 @@ enum SettingStyle {
     case move
 }
 
-enum SettingBlock {
-    case fast
+enum SettingBlock: Int, CaseIterable {
+    case fast = 1
     case notifications
     case main
 

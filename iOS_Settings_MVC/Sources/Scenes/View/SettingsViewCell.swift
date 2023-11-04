@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsViewCell: UITableViewCell {
+class SettingsViewCell: UITableViewCell, Reusable {
 
     // MARK: - Properties
     var switchAction: ((Bool) -> Void)?

@@ -6,19 +6,29 @@
 //
 
 import UIKit
+import NotificationManager
 
 class MainViewController: UIViewController {
 
-    private var MainView: MainView? {
-        guard isViewLoaded else { return nil }
-        return view as? MainView
-    }
+    private var settingsView = MainView()
+
+//    private var mainView: MainView? {
+//        guard isViewLoaded else { return nil }
+//        return view as? MainView
+//    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = MainView
+        view = settingsView
+        setupTableView()
     }
 
+    private func setupTableView() {
+        settingsView.tableView.register(cellType: SettingsViewCell.self)
+        settingsView.tableView.dataSource = self
+        settingsView.tableView.delegate = self
+     }
 }
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
@@ -48,9 +58,49 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        var set = [Setting]()
+
+        switch indexPath.section {
+        case 0:
+            set = SettingsManager.shared.getSettingsList(for: .fast)
+        case 1:
+            set = SettingsManager.shared.getSettingsList(for: .notifications)
+        case 2:
+            set = SettingsManager.shared.getSettingsList(for: .main)
+        default:
+            set = SettingsManager.shared.getSettingsList(for: .fast)
+        }
+
+        let setChose = set[indexPath.row]
+
+        let cell: SettingsViewCell = settingsView.tableView.dequeueReusableCell(for: indexPath, cellType: SettingsViewCell.self)
+        cell.configure(with: setChose)
+        cell.switchAction = { isOn in
+            NotificationManager.shared.sendNotification(withTitle: "You changed state to \(isOn ? "on" : "off")")
+        }
+
+        return cell
     }
-    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+
+        let block = SettingBlock.allCases[indexPath.section]
+        let settings = SettingsManager.shared.getSettingsList(for: block)
+        let setting = settings[indexPath.row]
+
+
+        // Отправка уведомления о выборе настройки
+        NotificationManager.shared.sendNotification(withTitle: "You push '\(setting.name)' button")
+
+        // Переход к экрану настроек
+//        moveToSetttingView(setting.name)
+
+
+
+    }
+
     
 
 }
