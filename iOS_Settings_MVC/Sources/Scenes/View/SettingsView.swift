@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class MainView: UIView {
+class SettingsView: UIView {
 
     // MARK: - Components
     lazy var tableView: UITableView = {

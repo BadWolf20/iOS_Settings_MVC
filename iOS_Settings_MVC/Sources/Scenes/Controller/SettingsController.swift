@@ -8,10 +8,9 @@
 import UIKit
 import NotificationManager
 
-class MainViewController: UIViewController {
+class SettingsController: UIViewController {
     // MARK: - Properties
-    private let settingsView = MainView()
-
+    private let settingsView = SettingsView()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -38,6 +37,7 @@ class MainViewController: UIViewController {
     private func setupText() {
         title = "Settings"
     }
+    
     // MARK: - Functions
     // Переход к экрану настроек на основе выбранной строки
     private func moveToSetttingView(_ screenName: String) {
@@ -47,7 +47,7 @@ class MainViewController: UIViewController {
 }
 
 // MARK: - UITableViewDataSource
-extension MainViewController: UITableViewDataSource {
+extension SettingsController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return SettingsManager.shared.getSectionsCount()
     }
@@ -90,7 +90,7 @@ extension MainViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension MainViewController: UITableViewDelegate {
+extension SettingsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         let block = SettingBlock.allCases[indexPath.section]
         let settings = SettingsManager.shared.getSettingsList(for: block)
