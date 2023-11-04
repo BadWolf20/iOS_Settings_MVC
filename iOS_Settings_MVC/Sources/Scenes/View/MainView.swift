@@ -10,6 +10,7 @@ import SnapKit
 
 class MainView: UIView {
 
+    // MARK: - Components
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
 
@@ -18,7 +19,8 @@ class MainView: UIView {
 
         return tableView
     }()
-    
+
+    // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -28,6 +30,7 @@ class MainView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Setup
     private func setupUI() {
         setupHierarchy()
         setupConstraints()
@@ -41,7 +44,6 @@ class MainView: UIView {
 
     private func setupComponents() {
         backgroundColor = .systemBackground
-
     }
 
     private func setupText() {
